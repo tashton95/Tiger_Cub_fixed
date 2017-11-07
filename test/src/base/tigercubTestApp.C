@@ -1,6 +1,7 @@
 #include "tigercubTestApp.h"
 #include "tigercubApp.h"
 #include "Moose.h"
+#include "ModulesApp.h"
 #include "AppFactory.h"
 #include "MooseSyntax.h"
 
@@ -15,10 +16,12 @@ validParams<tigercubTestApp>()
 tigercubTestApp::tigercubTestApp(InputParameters parameters) : MooseApp(parameters)
 {
   Moose::registerObjects(_factory);
+  ModulesApp::registerObjects(_factory);
   tigercubApp::registerObjectDepends(_factory);
   tigercubApp::registerObjects(_factory);
 
   Moose::associateSyntax(_syntax, _action_factory);
+  ModulesApp::associateSyntax(_syntax, _action_factory);
   tigercubApp::associateSyntaxDepends(_syntax, _action_factory);
   tigercubApp::associateSyntax(_syntax, _action_factory);
 
