@@ -30,16 +30,6 @@
   [../]
 []
 
-[AuxVariables]
-  [./adapt_aux_variable]
-    block = 0
-  [../]
-  [./RGB_aux_variable]
-    order = CONSTANT
-    family = MONOMIAL
-  [../]
-[]
-
 [Functions]
   [./ImageFunc]
     type = ImageFunction
@@ -88,8 +78,6 @@
     type = HfAlMaterial
     block = 0
     interface_cond = 0.0001
-    RGB_aux_variable = RGB_aux_variable
-    temperature = 373
   [../]
 []
 

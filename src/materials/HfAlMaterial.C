@@ -24,7 +24,7 @@ HfAlMaterial::HfAlMaterial(const InputParameters & parameters) :
   _RGB(declareProperty<Real>("RGB")),
   _q_generated(declareProperty<Real>("q_generated")),
   _density(declareProperty<Real>("density")),
-  _conductivity(declareProperty<Real>("conductivity")),
+  _thermal_conductivity(declareProperty<Real>("thermal_conductivity")),
   _specific_heat(declareProperty<Real>("specific_heat")),
   _interface_cond(parameters.get<Real>("interface_cond"))
 {
@@ -41,7 +41,7 @@ HfAlMaterial::computeQpProperties()
   {
     //Al3HF INTERMETALLIC PARTICLE
     _q_generated[_qp] = 91.053;           // W/cm^3
-    _conductivity[_qp] = 0.000035629;     // W/um-K
+    _thermal_conductivity[_qp] = 0.000035629;     // W/um-K
     _specific_heat[_qp] = 0.38;           // ignore
     _density[_qp] = 6.03;                 // g/cm^3
   }
@@ -56,7 +56,7 @@ HfAlMaterial::computeQpProperties()
     double E1 = -0.00000000032368;
     //_conductivity[_qp] = A1 + B1*qp_temperature + C1*pow(qp_temperature,2) + D1*pow(qp_temperature,3) + E1*pow(qp_temperature,4);
     //_conductivity[_qp] = _conductivity[_qp]/1000000.0;
-   _conductivity[_qp] = 0.000239724;
+   _thermal_conductivity[_qp] = 0.000239724;
     // W/um-K
 
     double A2 = -0.16344013600464341;

@@ -30,7 +30,7 @@ private:
   MaterialProperty<Real> & _RGB;
   MaterialProperty<Real> & _q_generated;
   MaterialProperty<Real> & _density;
-  MaterialProperty<Real> & _conductivity;
+  MaterialProperty<Real> & _thermal_conductivity;
   MaterialProperty<Real> & _specific_heat;
   Real _interface_cond;
 };
